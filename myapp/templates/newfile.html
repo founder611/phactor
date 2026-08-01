@@ -139,6 +139,11 @@
             .navcta .btn-ghost { display: none; }
         }
 
+        @media (max-width: 480px) {
+            .navcta { gap: 10px; }
+            .navcta .btn-primary { padding: 11px 16px; font-size: 13px; }
+        }
+
         .hero { position: relative; overflow: hidden; padding: 84px 0 40px; background: linear-gradient(180deg, var(--ice) 0%, #ffffff 100%); }
         .hero-wave { position: absolute; left: 0; right: 0; bottom: -2px; line-height: 0; }
         .hero-wave svg { width: 100%; height: auto; display: block; }
@@ -206,13 +211,17 @@
             .experience-card { right: 10px; }
         }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .gallery-card { display: block; background: #fff; border-radius: 18px; overflow: hidden; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,.08); transition: .35s; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px; }
+        .gallery-card { display: flex; flex-direction: column; background: #fff; border-radius: 18px; overflow: hidden; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,.08); transition: .35s; height: 100%; }
         .gallery-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,.15); }
-        .gallery-card img { width: 100%; height: 240px; object-fit: cover; display: block; }
-        .gallery-content { padding: 24px; }
-        .gallery-content h4 { margin-bottom: 12px; color: #083f7a; font-size: 22px; }
-        .gallery-content p { color: #666; line-height: 1.7; }
+        .gallery-card .img-wrap { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: var(--ice); }
+        .gallery-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .gallery-content { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+        .gallery-content h4 { margin-bottom: 10px; color: #083f7a; font-size: 18px; }
+        .gallery-content p { color: #666; line-height: 1.65; font-size: 14px; }
+        @media (max-width: 1100px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 780px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+        @media (max-width: 460px) { .gallery-grid { grid-template-columns: 1fr; } .gallery-card .img-wrap { aspect-ratio: 16 / 10; } }
 
         .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .why-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; transition: transform .3s ease, box-shadow .3s ease; }
@@ -313,6 +322,57 @@
         @media (max-width: 900px) {
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .hero-grid, .leader-grid, .avail-grid, .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== RESPONSIVE TUNING: LAPTOPS / TABLETS / MOBILES ===== */
+        @media (max-width: 1024px) {
+            .wrap { padding: 0 24px; }
+            .container { padding: 0 24px; }
+            section { padding: 72px 0; }
+            .ceo-section { padding: 90px 0; }
+            .hero-visual { min-height: 340px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 14px 20px; }
+            .brand img.logo-mark { height: 44px; }
+            .brand .wordmark { font-size: 20px; }
+            .hero { padding: 44px 0 28px; }
+            .hero-visual { min-height: 260px; margin-top: 12px; }
+            .hero-image { max-width: 240px; }
+            .badge-float { font-size: 11px; padding: 9px 12px; }
+            .badge-float.b1 { top: 0; left: 0; }
+            .badge-float.b2 { bottom: 0; right: 0; }
+            .hero-stats { gap: 20px; }
+            section { padding: 52px 0; }
+            .ceo-section { padding: 60px 0; }
+            .section-head { margin-bottom: 30px; }
+            .experience-card { padding: 14px 18px; right: 6px; bottom: 14px; }
+            .experience-card h3 { font-size: 18px; }
+            .avail-card, .form-card, .contact-info { padding: 22px; }
+            .cta-strip { padding: 34px 24px; text-align: center; justify-content: center; }
+            .cta-strip > div:last-child { justify-content: center; width: 100%; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+            footer { padding: 48px 0 24px; }
+            .why-grid, .process-grid { gap: 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .wrap { padding: 0 18px; }
+            .container { padding: 0 18px; }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .hero-actions .btn { width: 100%; }
+            .hero-stats { gap: 16px; }
+            .hero-stat .num { font-size: 20px; }
+            .ceo-content h2 { font-size: 28px; margin-bottom: 20px; }
+            .ceo-content p { font-size: 15px; }
+            .experience-card { position: static; margin-top: 14px; display: inline-block; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .avail-row { flex-wrap: wrap; }
+            .trust-grid { gap: 14px; }
+            .trust-item span { font-size: 12px; }
+            .section-head h2 { font-size: 26px; }
         }
 
         .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
@@ -432,7 +492,7 @@
                     </div>
 
                     <div class="signature">
-                        <img src="{% static 'homepage/img/signature.png' %}" alt="Sujith Renjith Signature">
+                        <img src="{% static 'homepage/img/sign.png' %}" alt="Sujith Renjith Signature">
                         <h3>Sujith Renjith</h3>
                         <span>Founder & CEO</span>
                     </div>
@@ -452,66 +512,66 @@
 
             <div class="gallery-grid">
                 <a href="drinking-water.html" class="gallery-card reveal">
-                    <img src="{% static 'homepage/img/bottle1.png' %}" alt="Drinking Water">
+                    <div class="img-wrap"><img src="{% static 'homepage/img/drinking-water.jpg' %}" alt="pHactor Drinking Water Bottle"></div>
                     <div class="gallery-content">
                         <h4>Drinking Water</h4>
-                        <p>Safe, hygienic and purified drinking water available in multiple bottle sizes.</p>
+                        <p>Clear PET bottles of safe, hygienic drinking water in 250ml, 500ml, 1L and 20L formats for daily use.</p>
                     </div>
                 </a>
 
                 <a href="packaged-drinking-water.html" class="gallery-card reveal">
-                    <img src="{% static 'homepage/img/bottle2.png' %}" alt="Packaged Drinking Water">
+                    <div class="img-wrap"><img src="{% static 'homepage/img/packaged-drinking-water.jpg' %}" alt="pHactor Packaged Drinking Water Bottle"></div>
                     <div class="gallery-content">
                         <h4>Packaged Drinking Water</h4>
-                        <p>Premium packaged drinking water processed using advanced purification technology.</p>
+                        <p>Sealed, tamper-proof bottles processed through multi-stage purification and lab-verified before dispatch.</p>
                     </div>
                 </a>
 
                 <a href="mineral-water.html" class="gallery-card reveal">
-                    <img src="{% static 'homepage/img/bottle3.png' %}" alt="Mineral Water">
+                    <div class="img-wrap"><img src="{% static 'homepage/img/mineral-water.jpg' %}" alt="pHactor Mineral Water Bottle"></div>
                     <div class="gallery-content">
                         <h4>Mineral Water</h4>
-                        <p>Naturally mineral enriched water delivering freshness and balanced taste.</p>
+                        <p>Naturally mineral-enriched water bottled with calcium, magnesium and potassium for a smooth, balanced taste.</p>
                     </div>
                 </a>
 
                 <a href="fruit-beverages.html" class="gallery-card reveal">
-                    <img src="{% static 'homepage/img/bottle4.png' %}" alt="Fruit Beverages">
+                    <div class="img-wrap"><img src="{% static 'homepage/img/fruit-beverages.jpg' %}" alt="pHactor Fruit Beverage Bottle"></div>
                     <div class="gallery-content">
                         <h4>Fruit Beverages</h4>
-                        <p>Delicious fruit beverages and fruit flavoured soft drinks made with quality ingredients.</p>
+                        <p>Real fruit-flavoured bottled drinks — orange, mixed fruit and more — made with quality ingredients.</p>
                     </div>
                 </a>
 
                 <a href="soft-drinks.html" class="gallery-card reveal">
-                    <img src="{% static 'homepage/img/bottle5.png' %}" alt="Soft Drinks">
+                    <div class="img-wrap"><img src="{% static 'homepage/img/soft-drinks.jpg' %}" alt="pHactor Soft Drink Bottle"></div>
                     <div class="gallery-content">
                         <h4>Soft Drinks</h4>
-                        <p>Refreshing carbonated and non-carbonated soft drinks for every occasion.</p>
+                        <p>Bottled carbonated and non-carbonated soft drinks packaged for retail shelves and events.</p>
                     </div>
                 </a>
 
                 <a href="aerated-water.html" class="gallery-card reveal">
-                    <img src="{% static 'homepage/img/bottle6.png' %}" alt="Aerated Water">
+                    <div class="img-wrap"><img src="{% static 'homepage/img/aerated-water.jpg' %}" alt="pHactor Aerated Water Bottle"></div>
                     <div class="gallery-content">
                         <h4>Aerated Water</h4>
-                        <p>Crisp sparkling water and premium soda water with consistent carbonation.</p>
+                        <p>Crisp sparkling and soda water bottles with consistent carbonation, bottled fresh in Ernakulam.</p>
                     </div>
                 </a>
 
                 <a href="non-alcoholic-beverages.html" class="gallery-card reveal">
-                    <img src="{% static 'homepage/img/bottle7.png' %}" alt="Non Alcoholic Beverages">
+                    <div class="img-wrap"><img src="{% static 'homepage/img/non-alcoholic-beverages.jpg' %}" alt="pHactor Non-Alcoholic Beverage Bottle"></div>
                     <div class="gallery-content">
                         <h4>Non-Alcoholic Beverages</h4>
-                        <p>A wide range of refreshing ready-to-drink beverages for every lifestyle.</p>
+                        <p>Ready-to-drink bottled beverages for every lifestyle, packaged to retain freshness and flavour.</p>
                     </div>
                 </a>
 
                 <a href="beer.html" class="gallery-card reveal">
-                    <img src="{% static 'homepage/img/bottle8.png' %}" alt="Beer">
+                    <div class="img-wrap"><img src="{% static 'homepage/img/beer.jpg' %}" alt="pHactor Beer Bottle"></div>
                     <div class="gallery-content">
                         <h4>Beer</h4>
-                        <p>Premium brewed beer manufactured with world-class brewing and packaging standards.</p>
+                        <p>Premium brewed beer bottled to world-class brewing and packaging standards.</p>
                     </div>
                 </a>
             </div>
